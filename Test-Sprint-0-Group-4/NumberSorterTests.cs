@@ -6,6 +6,9 @@ using Sprint_0_Group_4.Models;
 
 namespace Sprint_0_Group_4.Tests
 {
+    /// <summary>
+    /// This class contains unit tests for the NumberSorter class.
+    /// </summary>
     public class NumberSorterTests
     {
         [Fact]
