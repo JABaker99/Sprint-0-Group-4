@@ -1,0 +1,25 @@
+﻿Test Coverage Report – Sprint-0-Group-4
+
+Overview:
+This report summarizes the code coverage results for the Sprint-0-Group-4 project.
+The focus of testing was primarily on the Models layer.
+
+Overall Coverage Summary:
+Covered Blocks: 64
+Not Covered Blocks: 60
+Covered Lines: 28
+Partially Covered Lines: 2
+Not Covered Lines: 39
+
+Key Findings:
+- Core model logic is tested.
+- Controllers are not currently covered.
+- Generated ASP.NET Core code is not tested.
+
+Recommendations:
+- Add controller unit tests.
+- Increase branch coverage.
+- Continue prioritizing model testing.
+
+Conclusion:
+The project demonstrates partial but meaningful coverage with room for improvement.
