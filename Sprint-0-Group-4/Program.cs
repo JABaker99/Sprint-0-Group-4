@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using Sprint_0_Group_4.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("WebApiPostgreSQLLocalDatabase")));
 
 var app = builder.Build();
 
