@@ -17,14 +17,6 @@ namespace Sprint_0_Group_4.Controllers
             var users = _context.AppUser.ToList();
 
             return View(users);
-
-            //var users = new List<AppUser>
-            //{
-                //new AppUser { AppUserId = 1, Username="jsmith", Email="jsmith@email.com", Firstname="John", Lastname="Smith" },
-                //new AppUser { AppUserId = 2, Username="ajones", Email="ajones@email.com", Firstname="Alice", Lastname="Jones" }
-            //};
-
-            //return View(users);
         }
     }
 }
