@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\Users\mr00096\Source\Repos\Sprint-0-Group-4\Sprint-0-Group-4-Desktop\App.xaml.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Sprint_0_Group_4.Data;
+using System.IO;
+using System.Windows;
+
+namespace Sprint_0_Group_4_Desktop
+{
+    /// &lt;summary&gt;
+    /// Interaction logic for App.xaml
+    /// &lt;/summary&gt;
+    public partial class App : Application
+    {
+        public static AppDbContext Db { get; private set; } = default!;
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            var config = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile(&quot;appsettings.json&quot;, optional: false)
+                .Build();
+
+            var connStr = config.GetConnectionString(&quot;WebApiPostgreSQLLocalDatabase&quot;)
+                ?? throw new InvalidOperationException(&quot;Missing connection string&quot;);
+
+            var options = new DbContextOptionsBuilder&lt;AppDbContext&gt;()
+                .UseNpgsql(connStr)
+                .Options;
+
+            Db = new AppDbContext(options);
+
+            new MainWindow().Show();
+        }
+    }
+
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[17,9,17,10,0],[18,13,18,31,0],[20,13,23,26,0],[25,13,26,85,0],[28,13,30,26,0],[32,13,32,44,0],[34,13,34,37,0],[35,9,35,10,0]]);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\Users\mr00096\Source\Repos\Sprint-0-Group-4\Sprint-0-Group-4-Desktop\MainWindow.xaml.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Sprint_0_Group_4.Data;
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using System.Windows;
+
+namespace Sprint_0_Group_4_Desktop
+{
+    /// &lt;summary&gt;
+    /// Interaction logic for MainWindow.xaml.
+    /// &lt;/summary&gt;
+    public partial class MainWindow : Window
+    {
+        private readonly AppDbContext _context;
+
+        public MainWindow()
+        {
+            InitializeComponent();
+            _context = CreateDbContext();
+            Loaded += async (_, __) =&gt; await LoadUsersAsync();
+        }
+
+        private static AppDbContext CreateDbContext()
+        {
+            var config = new ConfigurationBuilder()
+                .SetBasePath(AppContext.BaseDirectory)
+                .AddJsonFile(&quot;appsettings.json&quot;, optional: false, reloadOnChange: true)
+                .Build();
+
+            var connStr = config.GetConnectionString(&quot;WebApiPostgreSQLLocalDatabase&quot;)
+                ?? throw new InvalidOperationException(&quot;Missing connection string: WebApiPostgreSQLLocalDatabase&quot;);
+
+            var options = new DbContextOptionsBuilder&lt;AppDbContext&gt;()
+                .UseNpgsql(connStr)
+                .Options;
+
+            return new AppDbContext(options);
+        }
+
+        private async Task LoadUsersAsync()
+        {
+            try
+            {
+                var users = await _context.AppUser.AsNoTracking().ToListAsync();
+                UsersGrid.ItemsSource = users;
+                NoUsersText.Visibility = users.Count == 0 ? Visibility.Visible : Visibility.Collapsed;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), &quot;DB Load Failed&quot;, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[18,9,18,28,0],[19,9,19,10,0],[20,13,20,35,0],[21,13,21,42,0],[22,13,22,63,0],[23,9,23,10,0],[26,9,26,10,0],[27,13,30,26,0],[32,13,33,116,0],[35,13,37,26,0],[39,13,39,46,0],[40,9,40,10,0],[43,9,43,10,0],[45,13,45,14,0],[46,17,46,81,0],[47,17,47,47,0],[48,17,48,103,0],[49,13,49,14,0],[50,13,50,33,0],[51,13,51,14,0],[52,17,52,110,0],[53,13,53,14,0],[54,9,54,10,0]]);
+    </script>
+  </body>
+</html>

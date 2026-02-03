@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\Users\mr00096\Source\Repos\Sprint-0-Group-4\Sprint-0-Group-4\Models\AppUser.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Sprint_0_Group_4.Models
+{
+    [Table(&quot;app_user&quot;)]
+    public class AppUser
+    {
+        [Column(&quot;app_user_id&quot;)]
+        public int AppUserId { get; set; }
+
+        [Column(&quot;username&quot;)]
+        public string Username { get; set; } = null!;
+
+        [Column(&quot;password&quot;)]
+        public string Password { get; set; } = null!;
+
+        [Column(&quot;firstname&quot;)]
+        public string? Firstname { get; set; }
+
+        [Column(&quot;lastname&quot;)]
+        public string? Lastname { get; set; }
+
+        [Column(&quot;email&quot;)]
+        public string? Email { get; set; }
+
+        [Column(&quot;phone&quot;)]
+        public string? Phone { get; set; }
+
+        [Column(&quot;avatar&quot;)]
+        public string? Avatar { get; set; }
+
+        [Column(&quot;created_at&quot;)]
+        public DateTime CreatedAt { get; set; }
+
+        [Column(&quot;updated_at&quot;)]
+        public DateTime? UpdatedAt { get; set; }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[12,48,12,53,0],[15,48,15,53,0]]);
+    </script>
+  </body>
+</html>

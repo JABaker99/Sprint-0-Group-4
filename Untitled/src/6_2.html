@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>C:\Users\mr00096\Source\Repos\Sprint-0-Group-4\Sprint-0-Group-4\Models\NumberSorter.cs</title>
+    <script type="text/javascript" src="../js/dotcover.sourceview.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dotcover.report.css" />
+  </head>
+  <body>
+    <pre id="content" class="source-code">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Sprint_0_Group_4.Models
+{
+    /// &lt;summary&gt;
+    /// Provides number sorting utilities.
+    /// &lt;/summary&gt;
+    public static class NumberSorter
+    {
+        /// &lt;summary&gt;
+        /// Returns a new list of numbers sorted in ascending order.
+        /// &lt;/summary&gt;
+        public static List&lt;int&gt; SortAscending(IEnumerable&lt;int&gt; numbers)
+        {
+            if (numbers is null)
+                throw new ArgumentNullException(nameof(numbers));
+
+            return numbers.OrderBy(n =&gt; n).ToList();
+        }
+
+        /// &lt;summary&gt;
+        /// Returns a new list of numbers sorted in descending order.
+        /// &lt;/summary&gt;
+        public static List&lt;int&gt; SortDescending(IEnumerable&lt;int&gt; numbers)
+        {
+            if (numbers is null)
+                throw new ArgumentNullException(nameof(numbers));
+
+            return numbers.OrderByDescending(n =&gt; n).ToList();
+        }
+    }
+}
+
+    </pre>
+    <script type="text/javascript">
+      highlightRanges([[16,9,16,10,1],[17,13,17,33,1],[18,17,18,66,1],[20,13,20,41,1],[20,41,20,42,1],[20,42,20,53,1],[21,9,21,10,1],[27,9,27,10,1],[28,13,28,33,1],[29,17,29,66,1],[31,13,31,51,1],[31,51,31,52,1],[31,52,31,63,1],[32,9,32,10,1]]);
+    </script>
+  </body>
+</html>
